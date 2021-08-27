@@ -6,7 +6,7 @@ class CreateAccountButton extends StatelessWidget {
   final UserRepository _userRepository;
 
   CreateAccountButton(
-      {required Key key, required UserRepository userRepository})
+      { Key? key, required UserRepository userRepository})
       : _userRepository = userRepository,
         super(key: key);
 
@@ -17,7 +17,7 @@ class CreateAccountButton extends StatelessWidget {
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return RegisterScreen(
-            userRepository: _userRepository,
+            userRepository: _userRepository, key: key!,
           );
         }));
       },

@@ -9,7 +9,7 @@ class AuthenticationBloc
 
   AuthenticationBloc({required UserRepository userRepository})
       : _userRepository = userRepository,
-        super(null);
+        super(Uninitialized());
 
   AuthenticationState get initialState => Uninitialized();
 
@@ -34,7 +34,7 @@ class AuthenticationBloc
       if (isSignedIn) {
         final user = await _userRepository.getUser();
         yield await Future.delayed(Duration(seconds: 5), () {
-          return Authenticated(user);
+          return Authenticated(user!);
         });
       } else {
         yield await Future.delayed(Duration(seconds: 5), () {
@@ -47,7 +47,7 @@ class AuthenticationBloc
   }
 
   Stream<AuthenticationState> _mapLoggedInToState() async* {
-    yield Authenticated(await _userRepository.getUser());
+    yield Authenticated((await _userRepository.getUser())!);
   }
 
   Stream<AuthenticationState> _mapLoggedOutToState() async* {

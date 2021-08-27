@@ -1,10 +1,11 @@
-import 'package:evets_invoice_final/bloc/authentication_bloc/authentication_bloc.dart';
-import 'package:evets_invoice_final/bloc/authentication_bloc/authentication_event.dart';
-import 'package:evets_invoice_final/bloc/register_bloc/bloc.dart';
-import 'package:evets_invoice_final/bloc/register_bloc/register_bloc.dart';
-import 'package:evets_invoice_final/bloc/register_bloc/register_state.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../bloc/authentication_bloc/bloc.dart';
+import '../../bloc/register_bloc/bloc.dart';
+import 'register_button.dart';
 
 class RegisterForm extends StatefulWidget {
   @override
@@ -114,7 +115,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 // Un button
                 RegisterButton(
                   onPressed:
-                      isRegisterButtonEnabled(state) ? _onFormSubmitted : null,
+                      isRegisterButtonEnabled(state) ? _onFormSubmitted : null!,
                 )
               ],
             ),

@@ -1,3 +1,4 @@
+import 'package:evets_invoice_final/models/data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class _NewLineState extends State<NewLine> {
   double price = 0;
   final _qtyController = TextEditingController();
   int _qtycount = 0;
-  late String _selectedObject;
+  late String? _selectedObject;
   @override
   void initState() {
     super.initState();
@@ -51,7 +52,7 @@ class _NewLineState extends State<NewLine> {
     } else {
       final index =
           item.indexWhere((element) => element.itemname == _selectedObject);
-      price = item[index].itemprice;
+      price = item[index].itemprice!;
     }
     final pricecontroller = TextEditingController(text: '$price');
     return Row(
@@ -63,7 +64,7 @@ class _NewLineState extends State<NewLine> {
           decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.grey),
           ),
-          child: DropdownButtonFormField(
+          child: DropdownButtonFormField<dynamic>(
             decoration: InputDecoration(border: InputBorder.none),
             value: _selectedObject,
             /* items: productname.map((value) {

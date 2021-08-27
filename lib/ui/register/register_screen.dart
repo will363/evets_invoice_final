@@ -4,6 +4,8 @@ import 'package:evets_invoice_final/ui/register/register_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'register_form.dart';
+
 class RegisterScreen extends StatelessWidget {
   final UserRepository _userRepository;
 

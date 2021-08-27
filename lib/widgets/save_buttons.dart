@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SaveButton extends StatelessWidget {
-  final Function press;
+  final Function() press;
   final String title;
   SaveButton(this.press, this.title);
   @override

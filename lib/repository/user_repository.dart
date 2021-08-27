@@ -8,20 +8,20 @@ class UserRepository {
 
   // Constructor
   UserRepository(
-      {required FirebaseAuth firebaseAuth, required GoogleSignIn googleSignIn})
-      : _firebaseAuth = firebaseAuth,
-        _googleSignIn = googleSignIn;
+      { FirebaseAuth? firebaseAuth,  GoogleSignIn? googleSignIn})
+      : _firebaseAuth = firebaseAuth!,
+        _googleSignIn = googleSignIn!;
 
   // SignInWithGoogle
-  Future<User> signInWithGoogle() async {
+  Future<User?> signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
     final GoogleSignInAuthentication googleAuth =
         await googleUser!.authentication;
-    final AuthCredential credential = GoogleAuthProvider.getCredential(
+    final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
     await _firebaseAuth.signInWithCredential(credential);
-    return _firebaseAuth.currentUser();
+    return _firebaseAuth.currentUser;
   }
 
   // SignInWithCredentials
@@ -31,24 +31,27 @@ class UserRepository {
   }
 
   // SignUp - Registro
-  Future<void> signUp(String email, String password) async {
+  Future<UserCredential> signUp(String email, String password) async {
     return await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
   }
 
   // SignOut
   Future<void> signOut() async {
-    return Future.wait([_firebaseAuth.signOut(), _googleSignIn.signOut()]);
+    return Future.any([
+      _firebaseAuth.signOut(),
+      _googleSignIn.signOut(),
+    ]);
   }
 
   // Esta logueado?
   Future<bool> isSignedIn() async {
-    final currentUser = await _firebaseAuth.currentUser();
+    final currentUser = await _firebaseAuth.currentUser;
     return currentUser != null;
   }
 
   // Obtener usuario
-  Future<String> getUser() async {
-    return (await _firebaseAuth.currentUser()).email;
+  Future<String?> getUser() async {
+    return   _firebaseAuth.currentUser!.email;
   }
 }
