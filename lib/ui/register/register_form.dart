@@ -1,5 +1,6 @@
 import 'package:evets_invoice_final/bloc/authentication_bloc/authentication_bloc.dart';
 import 'package:evets_invoice_final/bloc/authentication_bloc/authentication_event.dart';
+import 'package:evets_invoice_final/bloc/register_bloc/bloc.dart';
 import 'package:evets_invoice_final/bloc/register_bloc/register_bloc.dart';
 import 'package:evets_invoice_final/bloc/register_bloc/register_state.dart';
 import 'package:flutter/material.dart';

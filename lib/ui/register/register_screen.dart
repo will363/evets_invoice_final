@@ -1,5 +1,6 @@
 import 'package:evets_invoice_final/bloc/register_bloc/register_bloc.dart';
 import 'package:evets_invoice_final/repository/user_repository.dart';
+import 'package:evets_invoice_final/ui/register/register_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
