@@ -8,9 +8,9 @@ class UserRepository {
 
   // Constructor
   UserRepository(
-      {required FirebaseAuth firebaseAuth, required GoogleSignIn googleSignIn})
-      : _firebaseAuth = firebaseAuth,
-        _googleSignIn = googleSignIn;
+      { FirebaseAuth? firebaseAuth,  GoogleSignIn? googleSignIn})
+      : _firebaseAuth = firebaseAuth!,
+        _googleSignIn = googleSignIn!;
 
   // SignInWithGoogle
   Future<User?> signInWithGoogle() async {

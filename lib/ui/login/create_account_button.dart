@@ -6,7 +6,7 @@ class CreateAccountButton extends StatelessWidget {
   final UserRepository _userRepository;
 
   CreateAccountButton(
-      {required Key key, required UserRepository userRepository})
+      { Key? key, required UserRepository userRepository})
       : _userRepository = userRepository,
         super(key: key);
 

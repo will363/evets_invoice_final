@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../routes/routes.dart';
+
 Widget createDrawer(BuildContext context) {
   return Drawer(
       child: ListView(
@@ -20,10 +22,10 @@ Widget createDrawer(BuildContext context) {
         ),
       ),
       ListTile(
-          leading: Icon(Icons.feed_outlined),
+          leading: Icon(Icons.send_outlined),
           title: Text('Invoice'),
           onTap: () {
-            Navigator.pushReplacementNamed(context, Routes.invoice);
+            Navigator.pushReplacementNamed(context, Routes.invoice!);
           }),
       ListTile(
           leading: Icon(Icons.volunteer_activism),

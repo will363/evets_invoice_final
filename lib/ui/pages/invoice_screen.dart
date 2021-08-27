@@ -2,7 +2,7 @@ import 'package:evets_invoice_final/ui/drawers/drawers.dart';
 import 'package:flutter/material.dart';
 
 class InvoiceScreen extends StatefulWidget {
-  static String routeName;
+  static String? routeName;
 
   InvoiceScreen({required Key key}) : super(key: key);
 

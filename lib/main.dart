@@ -10,7 +10,7 @@ import 'bloc/simple_bloc_delegate.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = SimpleBlocDelegate();
 
   final UserRepository userRepository = UserRepository();
   runApp(BlocProvider(
