@@ -73,10 +73,10 @@ class RegisterState {
   }
 
   RegisterState update(
-      {required bool isEmailValid, required bool isPasswordValid}) {
+      { bool? isEmailValid,  bool? isPasswordValid}) {
     return copyWith(
-        isEmailValid: isEmailValid,
-        isPasswordValid: isPasswordValid,
+        isEmailValid: isEmailValid!,
+        isPasswordValid: isPasswordValid!,
         isSubmitting: false,
         isSucess: false,
         isFailure: false);

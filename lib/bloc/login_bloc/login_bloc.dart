@@ -3,6 +3,10 @@ import 'package:evets_invoice_final/bloc/login_bloc/login_state.dart';
 import 'package:evets_invoice_final/repository/user_repository.dart';
 import 'package:evets_invoice_final/util/validators.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rxdart/rxdart.dart';
+
+import '../../util/validators.dart';
+import 'bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   UserRepository _userRepository;
@@ -10,26 +14,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   //Constructor
   LoginBloc({required UserRepository userRepository})
       : _userRepository = userRepository,
-        super(null);
+        super(LoginState.empty());
 
   @override
   LoginState get initialState => LoginState.empty();
 
   @override
   Stream<Transition<LoginEvent, LoginState>> transformEvents(
-    Stream<LoginEvent> events,
-    TransitionFunction<LoginEvent, LoginState> transitionFn,
-  ) {
-    final nonDebounceStream = events.where((event) {
+      Stream<LoginEvent> events,
+      TransitionFunction<LoginEvent, LoginState> next,
+      ) {
+    final observableStream = events as Stream<LoginEvent>;
+    final nonDebounceStream = observableStream.where((event) {
       return (event is! EmailChanged && event is! PasswordChanged);
     });
-    final debounceStream = events.where((event) {
+    final debounceStream = observableStream.where((event) {
       return (event is EmailChanged || event is PasswordChanged);
-    }).debounceTime(Duration(milliseconds: 300));
+    }).debounce((_) => TimerStream(true, const Duration(milliseconds: 300)));
     return super.transformEvents(
-      nonDebounceStream.mergeWith([debounceStream]),
-      transitionFn,
-    );
+        MergeStream([nonDebounceStream, debounceStream]), next);
   }
 
   @override
@@ -52,7 +55,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Stream<LoginState> _mapEmailChangedToState(String email) async* {
-    yield state.update(isEmailValid: Validators.isValidEmail(email));
+    yield state.update(isEmailValid: Validators.isValidEmail(email),);
   }
 
   Stream<LoginState> _mapPasswordChangedToState(String password) async* {

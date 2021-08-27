@@ -5,12 +5,14 @@ import 'package:evets_invoice_final/util/validators.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
+import 'bloc.dart';
+
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final UserRepository _userRepository;
 
   RegisterBloc({required UserRepository userRepository})
       : _userRepository = userRepository,
-        super(null);
+        super(RegisterState.empty());
 
   RegisterState get initialState => RegisterState.empty();
 
