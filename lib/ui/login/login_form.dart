@@ -121,6 +121,7 @@ class _LoginFormState extends State<LoginForm> {
                       LoginButton(
                         onPressed: isLoginButtonEnabled(state)
                             ? _onFormSubmitted
+                            // ignore: null_check_always_fails
                             : null!,
                       ),
                       // GoogleLoginButton

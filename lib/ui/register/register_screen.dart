@@ -10,8 +10,7 @@ class RegisterScreen extends StatelessWidget {
   final UserRepository _userRepository;
 
   RegisterScreen({required Key key, required UserRepository userRepository})
-      : assert(userRepository != null),
-        _userRepository = userRepository,
+      : _userRepository = userRepository,
         super(key: key);
 
   @override

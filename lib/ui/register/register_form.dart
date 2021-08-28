@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -115,6 +113,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 // Un button
                 RegisterButton(
                   onPressed:
+                      // ignore: null_check_always_fails
                       isRegisterButtonEnabled(state) ? _onFormSubmitted : null!,
                 )
               ],

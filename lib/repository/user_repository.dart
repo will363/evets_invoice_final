@@ -7,8 +7,7 @@ class UserRepository {
   final GoogleSignIn _googleSignIn;
 
   // Constructor
-  UserRepository(
-      { FirebaseAuth? firebaseAuth,  GoogleSignIn? googleSignIn})
+  UserRepository({FirebaseAuth? firebaseAuth, GoogleSignIn? googleSignIn})
       : _firebaseAuth = firebaseAuth!,
         _googleSignIn = googleSignIn!;
 
@@ -46,12 +45,12 @@ class UserRepository {
 
   // Esta logueado?
   Future<bool> isSignedIn() async {
-    final currentUser = await _firebaseAuth.currentUser;
+    final currentUser = _firebaseAuth.currentUser;
     return currentUser != null;
   }
 
   // Obtener usuario
   Future<String?> getUser() async {
-    return   _firebaseAuth.currentUser!.email;
+    return _firebaseAuth.currentUser!.email;
   }
 }
