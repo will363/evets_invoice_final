@@ -2,7 +2,6 @@ import 'package:evets_invoice_final/models/Product.dart';
 import 'package:flutter/material.dart';
 
 import 'customer.dart';
-import 'item.dart';
 
 class Data with ChangeNotifier {
   final List<Product> _products = [

@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 class RegisterState {
   final bool isEmailValid;
   final bool isPasswordValid;
@@ -72,8 +70,7 @@ class RegisterState {
         isFailure: isFailure);
   }
 
-  RegisterState update(
-      { bool? isEmailValid,  bool? isPasswordValid}) {
+  RegisterState update({bool? isEmailValid, bool? isPasswordValid}) {
     return copyWith(
         isEmailValid: isEmailValid!,
         isPasswordValid: isPasswordValid!,

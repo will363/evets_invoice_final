@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 class LoginState {
   // Definir variables
   final bool isEmailValid;
@@ -74,8 +72,7 @@ class LoginState {
         isFailure: isFailure);
   }
 
-  LoginState update(
-      { bool? isEmailValid, bool? isPasswordValid}) {
+  LoginState update({bool? isEmailValid, bool? isPasswordValid}) {
     return copyWith(
         isEmailValid: isEmailValid!,
         isPasswordValid: isPasswordValid!,

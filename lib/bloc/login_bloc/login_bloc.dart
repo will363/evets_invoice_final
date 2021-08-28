@@ -16,15 +16,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       : _userRepository = userRepository,
         super(LoginState.empty());
 
-  @override
   LoginState get initialState => LoginState.empty();
 
   @override
   Stream<Transition<LoginEvent, LoginState>> transformEvents(
-      Stream<LoginEvent> events,
-      TransitionFunction<LoginEvent, LoginState> next,
-      ) {
-    final observableStream = events as Stream<LoginEvent>;
+    Stream<LoginEvent> events,
+    TransitionFunction<LoginEvent, LoginState> next,
+  ) {
+    final observableStream = events;
     final nonDebounceStream = observableStream.where((event) {
       return (event is! EmailChanged && event is! PasswordChanged);
     });
@@ -55,7 +54,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Stream<LoginState> _mapEmailChangedToState(String email) async* {
-    yield state.update(isEmailValid: Validators.isValidEmail(email),);
+    yield state.update(
+      isEmailValid: Validators.isValidEmail(email),
+    );
   }
 
   Stream<LoginState> _mapPasswordChangedToState(String password) async* {
