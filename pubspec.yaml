@@ -29,9 +29,8 @@ dependencies:
   equatable:
   meta:
   rxdart:
-  flutter_auth_buttons:
   provider:
-    
+  firebase_core:
 
 
   # The following adds the Cupertino Icons font to your application.

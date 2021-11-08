@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "525791601709",
+    "project_id": "evets-invoice-final",
+    "storage_bucket": "evets-invoice-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525791601709:android:284f1cf39c3613b2b184a4",
+        "android_client_info": {
+          "package_name": "com.example.evets_invoice_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525791601709-b8kerd6qeksblpo338fj4tnh4cchlr25.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.evets_invoice_final",
+            "certificate_hash": "2b0c41c4bffac384a96a49c252347eee2fe0e308"
+          }
+        },
+        {
+          "client_id": "525791601709-e87uh1uv80imcf7akn0nbng0v7mj18jj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMrY5j8LLwOs1QRZCW3JvLdI4Y0kCgdJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525791601709-e87uh1uv80imcf7akn0nbng0v7mj18jj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

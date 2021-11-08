@@ -119,10 +119,7 @@ class _LoginFormState extends State<LoginForm> {
                       // Tres botones:
                       // LoginButton
                       LoginButton(
-                        onPressed: isLoginButtonEnabled(state)
-                            ? _onFormSubmitted
-                            // ignore: null_check_always_fails
-                            : null!,
+                        onPressed: isLoginButtonEnabled(state) ? _onFormSubmitted : (){},
                       ),
                       // GoogleLoginButton
                       GoogleLoginButton(),
